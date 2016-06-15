@@ -1,6 +1,6 @@
 <?php
 
-namespace OuikendBundle\Entity;
+namespace AppBundle\Entity;
 
 /**
  * User
