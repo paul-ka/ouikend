@@ -1,0 +1,3 @@
+ouikend_homepage:
+    path:     /
+    defaults: { _controller: OuikendBundle:Default:index }

@@ -1,0 +1,11 @@
+OuikendBundle\Entity\User:
+    type: entity
+    table: null
+    repositoryClass: OuikendBundle\Repository\UserRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    lifecycleCallbacks: {  }
