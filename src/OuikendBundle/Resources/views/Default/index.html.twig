@@ -23,10 +23,6 @@
         function config($routeProvider) {
             $routeProvider
                 .when('/', {
-                    templateUrl: "views/login.html",
-                    controller: 'loginCtrl'
-                })
-                .when('/prepare', {
                     templateUrl: "views/prepar.html",
                     controller: 'preparCtrl'
                 })
@@ -61,7 +57,7 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-6">
-                <a id="btnPrepare" href="#/prepare" class="btn btn-default btn-block" ng-class="colorP">Préparer</a>
+                <a id="btnPrepare" href="#/" class="btn btn-default btn-block" ng-class="colorP">Préparer</a>
             </div>
             <div class="col-xs-6">
                 <a id="btnTravel" href="#/travel" class="btn btn-default btn-block" ng-class="colorV">Voyager</a>
