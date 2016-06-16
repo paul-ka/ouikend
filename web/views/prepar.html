@@ -1,23 +1,14 @@
-<h1>title</h1>
-<form class="form-inline">
-	<div class="form-group">
-		<input type="text" class="form-control" id="inputMessage"
-			   placeholder="Your task" ng-model="description">
-	</div>
-	<button type="submit" class="btn btn-default" ng-click="add()">Add</button>
-</form>
-<hr>
-<ul class="list-group">
-	<li class="list-group-item" ng-repeat="todo in todos">
-		<form class="form-inline">
-			<div class="form-group">
-				<input type="text" class="form-control" id="inputMessage"
-					   ng-model="todo.description">
-			</div>
-			<div class="pull-right">
-				<button type="submit" class="btn btn-default" ng-click="update(todo)">Update</button>
-				<button type="submit" class="btn btn-danger" ng-click="delete(todo)">Delete</button>
-			</div>
-		</form>
-	</li>
-</ul>
+<div class="alert alert-success" role="alert">
+	<button class="btn btn-success pull-right" name="button">+</button>
+	<a ng-click="btnAmi()"><h4>Mes amis</h4></a>
+</div>
+<div ng-show="panelAmi">
+	les amis
+</div>
+<div class="alert alert-success" role="alert">
+	<button class="btn btn-success pull-right" name="button">+</button>
+	<a ng-click="btnTrip()"><h4>Mes voyages</h4></a>
+</div>
+<div ng-show="panelTrip">
+	les voyages
+</div>

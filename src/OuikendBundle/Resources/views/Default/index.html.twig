@@ -9,15 +9,15 @@
     <link rel="icon" type="image/png" href="" />
     <title>Sample</title>
     <!-- CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href='css/style.css'>
     <!-- AngularJS -->
-    <script src='js/libs/jquery-1.12.4.min.js' charset="utf-8"></script>
-    <script src='js/libs/bootstrap.min.js'></script>
     <script src='js/libs/angular.min.js'></script>
     <script src='js/libs/angular-route.min.js'></script>
     <script src='js/controllers/preparCtrl.js'></script>
+    <script src='js/controllers/travelCtrl.js'></script>
     <script src='js/services/preparService.js'></script>
+    <script src='js/services/travelService.js'></script>
 
     <script type="text/javascript">
         function config($routeProvider) {
@@ -30,8 +30,9 @@
                     templateUrl: "views/prepar.html",
                     controller: 'preparCtrl'
                 })
-                .when('/about', {
-                    templateUrl: "views/prepar.html"
+                .when('/travel', {
+                    templateUrl: "views/travel.html",
+                    controller: 'travelCtrl'
                 })
                 .otherwise({
                     redirectTo: '/'
@@ -49,7 +50,9 @@
         angular.module('app', ['ngRoute'])
             .config(config)
             .controller('preparCtrl', preparCtrl)
+            .controller('travelCtrl', travelCtrl)
             .service('preparService', preparService)
+            .service('travelService', travelService)
             /*.factory('', )*/
             .run(run);
     </script>
@@ -63,7 +66,7 @@
                 <a id="btnPrepare" href="#/prepare" class="btn btn-default btn-block">Préparer</a>
             </div>
             <div class="col-xs-6">
-                <a id="btnTravel" class="btn btn-default btn-block">Voyager</a>
+                <a id="btnTravel" href="#/travel" class="btn btn-default btn-block">Voyager</a>
             </div>
         </div>
 
