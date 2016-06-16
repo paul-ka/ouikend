@@ -8,4 +8,8 @@ OuikendBundle\Entity\Users:
             id: true
             generator:
                 strategy: AUTO
-    lifecycleCallbacks: {  }
+
+    manyToMany:
+        trips:
+            targetEntity: OuikendBundle\Entity\Trips
+            mappedBy: users

@@ -29,4 +29,22 @@ OuikendBundle\Entity\Trips:
             type: integer
         vote:
             type: boolean
-    lifecycleCallbacks: {  }
+
+    manyToMany:
+        users:
+            targetEntity: OuikendBundle\Entity\Users
+            inversedBy: trips
+            joinTable:
+                name: users_trips
+                joinColumns:
+                    trips_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    users_id:
+                        referencedColumnName: id
+
+    manyToMany:
+        activites:
+            targetEntity: OuikendBundle\Entity\Activites
+
+

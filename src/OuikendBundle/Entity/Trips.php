@@ -52,6 +52,9 @@ class Trips
      */
     private $vote;
 
+    private $users;
+    
+    private $activites;
 
     /**
      * Get id

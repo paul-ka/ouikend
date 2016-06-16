@@ -21,6 +21,8 @@ class Activites
      * @var string
      */
     private $descriptif;
+    
+    private $trips;
 
 
     /**

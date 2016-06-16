@@ -14,6 +14,9 @@ class Users extends BaseUser
      */
     protected $id;
 
+    private $trips;
+    
+
 
     /**
      * Get id

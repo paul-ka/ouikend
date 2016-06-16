@@ -16,3 +16,16 @@ OuikendBundle\Entity\Activites:
             type: string
             length: 255
     lifecycleCallbacks: {  }
+
+    manyToMany:
+        trips:
+            targetEntity: OuikendBundle\Entity\Trips
+            iversedBy: activites
+            joinTable:
+                name: trips_activites
+                joinColumns:
+                    trips_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    activites_id:
+                        referencedColumnName: id

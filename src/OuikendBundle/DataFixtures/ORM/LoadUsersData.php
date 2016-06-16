@@ -11,7 +11,7 @@ use OuikendBundle\Entity\Trips;
 use OuikendBundle\Entity\Activites;
 
 
-class LoadDivisionData extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
+class LoadUsersData extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
 {
     /**
      * {@inheritDoc}
