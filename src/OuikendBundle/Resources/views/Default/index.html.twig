@@ -1,2 +1,71 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="image/png" href="" />
+    <title>Sample</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('bundles/ouikend/css/style.css') }}">
+    <!-- AngularJS -->
+    <script src="{{ asset('bundles/ouikend/js/libs/jquery-1.12.4.min.js') }}" charset="utf-8"></script>
+    <script src="{{ asset('bundles/ouikend/js/libs/bootstrap.min.js') }}" charset="utf-8"></script>
+    <script src="{{ asset('bundles/ouikend/js/libs/angular.min.js') }}"></script>
+    <script src="{{ asset('bundles/ouikend/js/libs/angular-route.min.js') }}"></script>
+    <script src="{{ asset('bundles/ouikend/js/controllers/preparCtrl.js') }}"></script>
+    <script src="{{ asset('bundles/ouikend/js/services/todoService.js') }}"></script>
 
-Hello World!
+    <script type="text/javascript">
+        function config($routeProvider) {
+            $routeProvider
+                .when('/', {
+                    templateUrl: 'login.html',
+                    controller: 'loginCtrl'
+                })
+                .when('/prepar', {
+                    templateUrl: 'prepar.html',
+                    controller: 'preparCtrl'
+                })
+                .when('/about', {
+                    templateUrl: 'views/about.html'
+                })
+                .otherwise({
+                    redirectTo: '/'
+                });
+        }
+        function run($rootScope, $location){
+            var path = function() { return $location.path(); };
+            $rootScope.$watch(path, function(newVal, oldVal){
+                $rootScope.activetab = newVal;
+            });
+        }
+        angular.module('app', ['ngRoute'])
+            .config(config)
+            .controller('mainController', mainController)
+            .controller('inscriptionController', inscriptionController)
+            .service('todoService', todoService)
+            .service('inscriptionService', inscriptionService)
+            /*.factory('', )*/
+            .run(run);
+
+    </script>
+
+    </head>
+    <body>
+    <div class="container">
+        <div class="row">
+          <div class="col-xs-6">
+              <a id="btnPrepare" href="#/prepar" class="btn btn-default btn-block">Préparer</a>
+          </div>
+          <div class="col-xs-6">
+              <a id="btnTravel" class="btn btn-default btn-block">Voyager</a>
+          </div>
+        </div>
+
+        <ng-view></ng-view>
+    </div>
+</body>
+</html>
