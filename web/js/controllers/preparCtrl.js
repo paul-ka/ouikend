@@ -1,6 +1,13 @@
 // PREPAR CONTROLLER
-function preparCtrl($scope, $http, preparService) {
+function preparCtrl($scope, $rootScope, $http, preparService) {
 	$scope.title = "preparer";
+	$scope.panelAmi = false;
+	$scope.paneltrip = false;
+	$scope.colorP="{'btn btn-success':true}";
+	$scope.colorV="{'btn btn-default':true}";
+	$rootScope.colorV="btn-default";
+	$rootScope.colorP="btn-success";
+
 
 	function load(){
 		preparService.get().then(function(res){
@@ -24,6 +31,14 @@ function preparCtrl($scope, $http, preparService) {
 		preparService.delete(prepar._id).then(function(res){
 			load();
 		});
+	}
+	$scope.btnAmi = function(){
+		$scope.panelAmi = !$scope.panelAmi;
+		if ($scope.panelAmi){$scope.panelTrip = false;}
+	}
+	$scope.btnTrip = function(){
+		$scope.panelTrip = !$scope.panelTrip;
+		if ($scope.panelTrip){$scope.panelAmi = false;}
 	}
 	load();
 }
