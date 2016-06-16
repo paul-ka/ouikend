@@ -16,7 +16,7 @@
     <script src="{{ asset('bundles/ouikend/js/libs/angular.min.js') }}"></script>
     <script src="{{ asset('bundles/ouikend/js/libs/angular-route.min.js') }}"></script>
     <script src="{{ asset('bundles/ouikend/js/controllers/preparCtrl.js') }}"></script>
-    <script src="{{ asset('bundles/ouikend/js/services/todoService.js') }}"></script>
+    <script src="{{ asset('bundles/ouikend/js/services/preparService.js') }}"></script>
 
     <script type="text/javascript">
         function config($routeProvider) {
@@ -25,8 +25,8 @@
                     templateUrl: 'login.html',
                     controller: 'loginCtrl'
                 })
-                .when('/prepar', {
-                    templateUrl: 'prepar.html',
+                .when('/prepare', {
+                    templateUrl: 'prepare.html',
                     controller: 'preparCtrl'
                 })
                 .when('/about', {
@@ -44,10 +44,8 @@
         }
         angular.module('app', ['ngRoute'])
             .config(config)
-            .controller('mainController', mainController)
-            .controller('inscriptionController', inscriptionController)
-            .service('todoService', todoService)
-            .service('inscriptionService', inscriptionService)
+            .controller('preparCtrl', preparCtrl)
+            .service('preparService', preparService)
             /*.factory('', )*/
             .run(run);
 
@@ -58,7 +56,7 @@
     <div class="container">
         <div class="row">
           <div class="col-xs-6">
-              <a id="btnPrepare" href="#/prepar" class="btn btn-default btn-block">Préparer</a>
+              <a id="btnPrepare" href="#/prepare" class="btn btn-default btn-block">Préparer</a>
           </div>
           <div class="col-xs-6">
               <a id="btnTravel" class="btn btn-default btn-block">Voyager</a>
