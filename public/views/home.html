@@ -1,0 +1,31 @@
+    <nav class="navbar navbar-fixed-top navbar-border" role="navigation">
+       <div>
+           <button class="btn-block topButtonRight btn-block" ng-class="{active: activetab=='/preparer'}">PREPARER</button>
+       </div>
+        <div>
+           <button class="btn-block topButtonLeft btn-block" ng-class="{active: activetab=='/voyager'}">VOYAGER</button>
+       </div>
+    </nav>
+    
+<form class="form-inline">
+	<div class="form-group">
+		<input type="text" class="form-control" id="inputMessage" 
+			   placeholder="Your task" ng-model="description">
+	</div>
+	<button type="submit" class="btn btn-default" ng-click="add()">Add</button>
+</form>
+<hr>
+<ul class="list-group">
+	<li class="list-group-item" ng-repeat="todo in todos">
+		<form class="form-inline">
+			<div class="form-group">
+				<input type="text" class="form-control" id="inputMessage" 
+					   ng-model="todo.description">
+			</div>
+			<div class="pull-right">
+				<button type="submit" class="btn btn-default" ng-click="update(todo)">Update</button>
+				<button type="submit" class="btn btn-danger" ng-click="delete(todo)">Delete</button>
+			</div>
+		</form>
+	</li>
+</ul>

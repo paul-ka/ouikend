@@ -1,0 +1,22 @@
+    <nav class="navbar navbar-fixed-top navbar-border" role="navigation">
+       <div>
+           <button class="btn-block topButtonRight btn-block" ng-class="{active: activetab=='/preparer'}">PREPARER</button>
+       </div>
+        <div>
+           <button class="btn-block topButtonLeft btn-block" ng-class="{active: activetab=='/voyager'}">VOYAGER</button>
+       </div>
+    </nav>
+
+
+<input type="text" placeholder="pseudo" ng-model ="pseudo">
+<input type="text" placeholder="mail" ng-model ="mail">
+<button ng-click="valider()">Valider</button>
+
+
+<div class="" ng-repeat= "user in users">
+<input type="text" name="name" ng-model="user.pseudo">
+<input type="text" name="name" ng-model="user.mail">
+<button name="button" ng-click="update(user)">Update</button>
+
+    
+</div>
