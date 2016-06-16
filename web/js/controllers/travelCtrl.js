@@ -1,9 +1,11 @@
 // TRAVEL CONTROLLER
-function travelCtrl($scope, $http, travelService) {
+function travelCtrl($scope, $rootScope, $http, travelService) {
 	$scope.title = "Voyager";
 	$scope.paneltrip = false;
 	$scope.panelActivity = false;
 	$scope.panelPot = false;
+	$rootScope.colorP="btn-default";
+	$rootScope.colorV="btn-success";
 
 	function load(){
 		travelService.get().then(function(res){

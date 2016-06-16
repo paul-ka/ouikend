@@ -1,8 +1,13 @@
 // PREPAR CONTROLLER
-function preparCtrl($scope, $http, preparService) {
+function preparCtrl($scope, $rootScope, $http, preparService) {
 	$scope.title = "preparer";
 	$scope.panelAmi = false;
 	$scope.paneltrip = false;
+	$scope.colorP="{'btn btn-success':true}";
+	$scope.colorV="{'btn btn-default':true}";
+	$rootScope.colorV="btn-default";
+	$rootScope.colorP="btn-success";
+
 
 	function load(){
 		preparService.get().then(function(res){
