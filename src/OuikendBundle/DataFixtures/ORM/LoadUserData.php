@@ -10,7 +10,6 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use OuikendBundle\Entity\Trips;
 use OuikendBundle\Entity\Activites;
 
-
 class LoadUsersData extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
 {
     /**
@@ -23,60 +22,64 @@ class LoadUsersData extends AbstractFixture implements OrderedFixtureInterface, 
 
         // Creation du User aaa
         $user = $userManager->createUser();
-        $user->setPassword('1234');
+        $user->setUsername('julien');
+        $user->setPlainPassword('1234');
         $user->setEnabled(true);
         $user->setEmail('julien@email.com');
-        $user->setRoles(array('ROLE_USER'));
-        $user->setUsername('Julien');
-        $userManager->updateUser($user, true);
+        $user->setRoles(array('ROLE_ADMIN'));
         $this->addReference('user', $user);
+        $userManager->updateUser($user, true);
+
 
         $user = $userManager->createUser();
-        $user->setPassword('1234');
+        $user->setPlainPassword('1234');
         $user->setEnabled(true);
         $user->setEmail('paul@email.com');
-        $user->setRoles(array('ROLE_USER'));
-        $user->setUsername('Paul');
-        $userManager->updateUser($user, true);
+        $user->setRoles(array('ROLE_ADMIN'));
+        $user->setUsername('paul');
         $this->addReference('user2', $user);
+        $userManager->updateUser($user, true);
 
         $user = $userManager->createUser();
-        $user->setPassword('1234');
+        $user->setPlainPassword('Manu');
         $user->setEnabled(true);
         $user->setEmail('manu@email.com');
-        $user->setRoles(array('ROLE_USER'));
         $user->setUsername('Manu');
-        $userManager->updateUser($user, true);
         $this->addReference('user3', $user);
+        $userManager->updateUser($user, true);
 
         $user = $userManager->createUser();
-        $user->setPassword('1234');
+        $user->setPlainPassword('1234');
         $user->setEnabled(true);
         $user->setEmail('flo@email.com');
-        $user->setRoles(array('ROLE_USER'));
+        $user->setRoles(array('ROLE_ADMIN'));
         $user->setUsername('Flo');
-        $userManager->updateUser($user, true);
         $this->addReference('user4', $user);
+        $userManager->updateUser($user, true);
 
         $user = $userManager->createUser();
-        $user->setPassword('1234');
+        $user->setPlainPassword('1234');
         $user->setEnabled(true);
         $user->setEmail('jerome@email.com');
-        $user->setRoles(array('ROLE_USER'));
+        $user->setRoles(array('ROLE_ADMIN'));
         $user->setUsername('Jeje');
-        $userManager->updateUser($user, true);
         $this->addReference('use5', $user);
+        $userManager->updateUser($user, true);
+
 
 
         $user = $userManager->createUser();
-        $user->setPassword('1234');
+        $user->setPlainPassword('1234');
         $user->setEnabled(true);
         $user->setEmail('celine@email.com');
-        $user->setRoles(array('ROLE_USER'));
+        $user->setRoles(array('ROLE_ADMIN'));
         $user->setUsername('Celine');
-        $userManager->updateUser($user, true);
         $this->addReference('user6', $user);
-        
+        $userManager->updateUser($user, true);
+
+
+
+
         
 
     }
