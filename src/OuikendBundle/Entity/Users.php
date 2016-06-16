@@ -1,16 +1,18 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace OuikendBundle\Entity;
+
+use FOS\UserBundle\Model\User as BaseUser;
 
 /**
- * User
+ * Users
  */
-class User
+class Users extends BaseUser
 {
     /**
      * @var int
      */
-    private $id;
+    protected $id;
 
 
     /**

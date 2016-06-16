@@ -1,7 +1,7 @@
-OuikendBundle\Entity\User:
+OuikendBundle\Entity\Users:
     type: entity
     table: null
-    repositoryClass: OuikendBundle\Repository\UserRepository
+    repositoryClass: OuikendBundle\Repository\UsersRepository
     id:
         id:
             type: integer

@@ -1,0 +1,18 @@
+OuikendBundle\Entity\Activites:
+    type: entity
+    table: null
+    repositoryClass: OuikendBundle\Repository\ActivitesRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        activite:
+            type: string
+            length: 255
+        descriptif:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

@@ -1,4 +1,4 @@
-tamer
+Ouikend
 =====
 
-A Symfony project created on June 15, 2016, 6:14 pm.
+Projet d'application de voyage entre amis developpé sous Symfony et Angular Js pour un hackaton
