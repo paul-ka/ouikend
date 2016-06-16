@@ -32,10 +32,10 @@ OuikendBundle\Entity\Trips:
 
     manyToMany:
         users:
-            targetEntity: OuikendBundle\Entity\Users
+            targetEntity: OuikendBundle\Entity\User
             inversedBy: trips
             joinTable:
-                name: users_trips
+                name: user_trips
                 joinColumns:
                     trips_id:
                         referencedColumnName: id

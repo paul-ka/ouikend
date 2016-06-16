@@ -7,7 +7,7 @@ use FOS\UserBundle\Model\User as BaseUser;
 /**
  * Users
  */
-class Users extends BaseUser
+class User extends BaseUser
 {
     /**
      * @var int
@@ -15,9 +15,13 @@ class Users extends BaseUser
     protected $id;
 
     private $trips;
+
+    public function __construct()
+    {
+        parent::__construct();
+        // your own logic
+    }
     
-
-
     /**
      * Get id
      *
