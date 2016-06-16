@@ -1,0 +1,50 @@
+OuikendBundle\Entity\Trips:
+    type: entity
+    table: null
+    repositoryClass: OuikendBundle\Repository\TripsRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nomVoyage:
+            type: string
+            length: 255
+        but:
+            type: string
+            length: 255
+        descriptif:
+            type: string
+            length: 255
+        dateDebut:
+            type: date
+        dateFin:
+            type: date
+        lieu:
+            type: string
+            length: 255
+        budget:
+            type: integer
+        vote:
+            type: boolean
+
+    manyToMany:
+        users:
+            targetEntity: OuikendBundle\Entity\Users
+            inversedBy: trips
+            joinTable:
+                name: users_trips
+                joinColumns:
+                    trips_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    users_id:
+                        referencedColumnName: id
+
+    manyToMany:
+        activites:
+            targetEntity: OuikendBundle\Entity\Activites
+
+

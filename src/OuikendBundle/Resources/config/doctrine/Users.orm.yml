@@ -1,0 +1,15 @@
+OuikendBundle\Entity\Users:
+    type: entity
+    table: null
+    repositoryClass: OuikendBundle\Repository\UsersRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+
+    manyToMany:
+        trips:
+            targetEntity: OuikendBundle\Entity\Trips
+            mappedBy: users
