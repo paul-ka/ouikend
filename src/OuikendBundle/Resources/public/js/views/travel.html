@@ -1,11 +1,11 @@
-<div ng-show="page == 0">
+<div ng-show="mapage == 0">
 	<div class="alert alert-success" role="alert">
 		<a ng-click="btnTrip()"><h4>Notre voyage</h4></a>
 	</div>
 	<div ng-show="panelTrip">
 		<div ng-repeat="travel in travels|filter : 'Ardeche'">
 			<h4>{{travel.nom_voyage}}</h4>
-			<a ng-click="tview(travel)">Le descriptif</a>
+			<a class="btn btn-success" ng-click="tview(travel)">Le descriptif</a>
 			<hr>
 		</div>
 	</div>
@@ -27,16 +27,17 @@
 		la cagnote
 	</div>
 </div>
-<div ng-show="page == 1">
+<div ng-show="mapage == 1">
 	<h2>{{selt.nom_voyage}}</h2>
 	<p>{{selt.but}} - {{selt.lieu}}<br />{{selt.descriptif}}</p>
 	<p>Du {{selt.date_debut}} au {{selt.date_fin}}</p>
 	<p>{{selt.vote}} participants</p>
-	<a class="btn btn-success" ng-click="page = 0">retour</a>
+	<a class="btn btn-success" ng-click="mapage = 0">retour</a>
 	<a class="btn btn-success" ng-click="vok(selt.vote)">Je viens</a>
 </div>
-<div ng-show="page == 2">
-	<h2>{{sela.activite}}</h2>
-	<p>{{sela.descriptif}}</p>
-	<a class="btn btn-success" ng-click="page = 0">retour</a>
+<div class="divmap" ng-show="mapage == 2">
+
+	<div id="map"></div>
+
+	<a class="btn btn-success" ng-click="mapage = 0">retour</a>
 </div>

@@ -6,7 +6,7 @@ function travelCtrl($scope, $rootScope, $http, travelService, activityService, f
 	$scope.panelPot = false;
 	$rootScope.colorP="btn-default";
 	$rootScope.colorV="btn-success";
-	$scope.page=0;
+	$scope.mapage=0;
 
 	function load(){
 		travelService.get().then(function(res){
@@ -57,13 +57,14 @@ function travelCtrl($scope, $rootScope, $http, travelService, activityService, f
 			$scope.panelTrip = false;}
 	}
 	$scope.tview = function(t){
-		$scope.page=1;
+		$scope.mapage=1;
 		$scope.selt = t;
 	}
 	$scope.aview = function(a){
-		$scope.page=2;
+		$scope.mapage=2;
 		$scope.sela = a;
 	}
 	$scope.vok = function(vote){console.log(vote);return Number(vote)+1;}
 	load();
+
 }
