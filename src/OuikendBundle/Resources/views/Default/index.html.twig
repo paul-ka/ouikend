@@ -9,51 +9,15 @@
     <link rel="icon" type="image/png" href="" />
     <title>Sample</title>
     <!-- CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href='css/style.css'>
-    <!-- AngularJS -->
-    <script src='js/libs/angular.min.js'></script>
-    <script src='js/libs/angular-route.min.js'></script>
-    <script src='js/controllers/preparCtrl.js'></script>
-    <script src='js/controllers/travelCtrl.js'></script>
-    <script src='js/services/preparService.js'></script>
-    <script src='js/services/travelService.js'></script>
+    {% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset ('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset ('css/style.css') }}">
+    {% endblock  %}
 
-    <script type="text/javascript">
-        function config($routeProvider) {
-            $routeProvider
-                .when('/', {
-                    templateUrl: "views/prepar.html",
-                    controller: 'preparCtrl'
-                })
-                .when('/travel', {
-                    templateUrl: "views/travel.html",
-                    controller: 'travelCtrl'
-                })
-                .otherwise({
-                    redirectTo: '/'
-                });
-        }
 
-        function run($rootScope, $location) {
-            var path = function() {
-                return $location.path();
-            };
-            $rootScope.$watch(path, function(newVal, oldVal) {
-                $rootScope.activetab = newVal;
-            });
-        }
-        angular.module('app', ['ngRoute'])
-            .config(config)
-            .controller('preparCtrl', preparCtrl)
-            .controller('travelCtrl', travelCtrl)
-            .service('preparService', preparService)
-            .service('travelService', travelService)
-            /*.factory('', )*/
-            .run(run);
-    </script>
 </head>
 <body>
+
     <div class="container">
         <div class="row">
             <div class="col-xs-6">
@@ -66,6 +30,50 @@
 
         <ng-view></ng-view>
     </div>
-</body>
 
+</body>
 </html>
+
+<!-- AngularJS -->
+
+    <script src="{{ asset ('bundles/ouikend/js/libs/angular.min.js') }}"></script>
+    <script src="{{ asset ('bundles/ouikend/js/libs/angular-route.min.js') }}"></script>
+    <script src="{{ asset ('bundles/ouikend/js/controllers/preparCtrl.js') }}"></script>
+    <script src="{{ asset ('bundles/ouikend/js/controllers/travelCtrl.js') }}"></script>
+    <script src="{{ asset ('bundles/ouikend/js/services/preparService.js') }}"></script>
+    <script src="{{ asset ('bundles/ouikend/js/services/travelService.js') }}"></script>
+
+    <script type="text/javascript">
+        function config($routeProvider) {
+            $routeProvider
+                    .when('/', {
+                        templateUrl:"{{ asset('bundles/ouikend/js/views/prepar.html') }} ",
+                        controller: 'preparCtrl'
+                    })
+                    .when('/travel', {
+                        templateUrl:"{{ asset( 'bundles/ouikend/js/views/travel.html')}}",
+                        controller: 'travelCtrl'
+                    })
+                    .otherwise({
+                        redirectTo: '/'
+                    });
+        }
+
+        function run($rootScope, $location) {
+            var path = function() {
+                return $location.path();
+            };
+            $rootScope.$watch(path, function(newVal, oldVal) {
+                $rootScope.activetab = newVal;
+            });
+        }
+        angular.module('app', ['ngRoute'])
+                .config(config)
+                .controller('preparCtrl', preparCtrl)
+                .controller('travelCtrl', travelCtrl)
+                .service('preparService', preparService)
+                .service('travelService', travelService)
+                /*.factory('', )*/
+                .run(run);
+    </script>
+
