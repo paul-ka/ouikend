@@ -1,14 +1,71 @@
-<div class="alert alert-success" role="alert">
-	<button class="btn btn-success pull-right" name="button">+</button>
-	<a ng-click="btnAmi()"><h4>Mes amis</h4></a>
+<div  ng-show="page == 0">
+	<div class="alert alert-success" role="alert">
+		<button class="btn btn-success pull-right" ng-click="page = 3">+</button>
+		<a ng-click="btnAmi()"><h4>Mes amis</h4></a>
+	</div>
+	<div ng-show="panelAmi">
+		<div ng-repeat="friend in friends">
+			<h4>{{friend.username}}</h4>
+			<hr>
+		</div>
+	</div>
+	<div class="alert alert-success" role="alert">
+		<button class="btn btn-success pull-right" ng-click="page = 2">+</button>
+		<a ng-click="btnTrip()"><h4>Mes voyages</h4></a>
+	</div>
+	<div ng-show="panelTrip">
+		<div ng-repeat="travel in travels">
+			<a ng-click="tview(travel)"><h4>{{travel.nom_voyage}}</h4></a>
+			<hr>
+		</div>
+	</div>
 </div>
-<div ng-show="panelAmi">
-	les amis
+
+<div ng-show="page == 1">
+	<h2>{{selt.nom_voyage}}</h2>
+	<p>{{selt.but}} - {{selt.lieu}}<br />{{selt.descriptif}}</p>
+	<p>Du {{selt.date_debut}} au {{selt.date_fin}}</p>
+	<p>{{selt.vote}} participants</p>
+	<a class="btn btn-success" ng-click="page = 0">retour</a>
+	<a class="btn btn-success" ng-click="vok(selt.vote)">Je viens</a>
 </div>
-<div class="alert alert-success" role="alert">
-	<button class="btn btn-success pull-right" name="button">+</button>
-	<a ng-click="btnTrip()"><h4>Mes voyages</h4></a>
+<div ng-show="page == 2">
+	<h2>Nouveau voyage</h2>
+	<form>
+	  <div class="form-group">
+	    <label for="nom">nom du voyage</label>
+	    <input type="text" class="form-control" id="nom" placeholder="nom du voyage">
+	  </div>
+	  <div class="form-group">
+	    <label for="but">but du voyage</label>
+	    <input type="text" class="form-control" id="but" placeholder="but du voyage">
+	  </div>
+	  <div class="form-group">
+	    <label for="lieu">lieu de destination</label>
+	    <input type="text" class="form-control" id="lieu" placeholder="lieu de destination">
+	  </div>
+	  <div class="form-group">
+	    <label for="descriptif">Descriptif</label>
+		<textarea class="form-control" rows="3" id="descript"></textarea>
+	  </div>
+	  <div class="form-group">
+	    <label for="debut">date de debut</label>
+	    <input type="text" class="form-control" id="debut" placeholder="date de debut">
+	  </div>
+	  <div class="form-group">
+	    <label for="fin">date de fin</label>
+	    <input type="text" class="form-control" id="fin" placeholder="date de fin">
+	  </div>
+		<a class="btn btn-default" ng-click="page = 0">Annuler</a>
+		<a class="btn btn-success" ng-click=""page = 0"">Valider</a>
+	</form>
 </div>
-<div ng-show="panelTrip">
-	les voyages
+<div ng-show="page == 3">
+	<h2>Inviter mes amis</h2>
+		<div ng-repeat="friend in friends">
+			<input type="checkbox" value="">{{friend.username}}<br />
+		</div>
+
+		<a class="btn btn-default" ng-click="page = 0">Annuler</a>
+		<a class="btn btn-success" ng-click=""page = 0"">Valider</a>
 </div>

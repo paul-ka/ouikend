@@ -1,11 +1,11 @@
 <div ng-show="page == 0">
 	<div class="alert alert-success" role="alert">
-		<button class="btn btn-success pull-right" name="button">+</button>
-		<a ng-click="btnTrip()"><h4>Nos voyages</h4></a>
+		<a ng-click="btnTrip()"><h4>Notre voyage</h4></a>
 	</div>
 	<div ng-show="panelTrip">
-		<div ng-repeat="travel in travels">
-			<a ng-click="tview(travel)"><h4>{{travel.nom_voyage}}</h4></a>
+		<div ng-repeat="travel in travels|filter : 'Ardeche'">
+			<h4>{{travel.nom_voyage}}</h4>
+			<a ng-click="tview(travel)">Le descriptif</a>
 			<hr>
 		</div>
 	</div>
