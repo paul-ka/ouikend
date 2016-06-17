@@ -1,21 +1,42 @@
-<div class="alert alert-success" role="alert">
-	<button class="btn btn-success pull-right" name="button">+</button>
-	<a ng-click="btnTrip()"><h4>Nos voyages</h4></a>
+<div ng-show="page == 0">
+	<div class="alert alert-success" role="alert">
+		<button class="btn btn-success pull-right" name="button">+</button>
+		<a ng-click="btnTrip()"><h4>Nos voyages</h4></a>
+	</div>
+	<div ng-show="panelTrip">
+		<div ng-repeat="travel in travels">
+			<a ng-click="tview(travel)"><h4>{{travel.nom_voyage}}</h4></a>
+			<hr>
+		</div>
+	</div>
+	<div class="alert alert-success" role="alert">
+		<button class="btn btn-success pull-right" name="button">+</button>
+		<a ng-click="btnActivity()"><h4>Nos activités</h4></a>
+	</div>
+	<div ng-show="panelActivity">
+		<div ng-repeat="act in activitys">
+			<a ng-click="aview(act)"><h4>{{act.activite}}</h4></a>
+			<hr>
+		</div>
+	</div>
+	<div class="alert alert-success" role="alert">
+		<button class="btn btn-success pull-right" name="button">+</button>
+		<a ng-click="btnPot()"><h4>Notre cagnote</h4></a>
+	</div>
+	<div ng-show="panelPot">
+		la cagnote
+	</div>
 </div>
-<div ng-show="panelTrip">
-	les voyages
+<div ng-show="page == 1">
+	<h2>{{selt.nom_voyage}}</h2>
+	<p>{{selt.but}} - {{selt.lieu}}<br />{{selt.descriptif}}</p>
+	<p>Du {{selt.date_debut}} au {{selt.date_fin}}</p>
+	<p>{{selt.vote}} participants</p>
+	<a class="btn btn-success" ng-click="page = 0">retour</a>
+	<a class="btn btn-success" ng-click="vok(selt.vote)">Je viens</a>
 </div>
-<div class="alert alert-success" role="alert">
-	<button class="btn btn-success pull-right" name="button">+</button>
-	<a ng-click="btnActivity()"><h4>Nos activités</h4></a>
-</div>
-<div ng-show="panelActivity">
-	Nos activités
-</div>
-<div class="alert alert-success" role="alert">
-	<button class="btn btn-success pull-right" name="button">+</button>
-	<a ng-click="btnPot()"><h4>Notre cagnote</h4></a>
-</div>
-<div ng-show="panelPot">
-	la cagnote
+<div ng-show="page == 2">
+	<h2>{{sela.activite}}</h2>
+	<p>{{sela.descriptif}}</p>
+	<a class="btn btn-success" ng-click="page = 0">retour</a>
 </div>

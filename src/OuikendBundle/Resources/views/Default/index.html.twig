@@ -27,7 +27,6 @@
                 <a id="btnTravel" href="#/travel" class="btn btn-default btn-block" ng-class="colorV">Voyager</a>
             </div>
         </div>
-
         <ng-view></ng-view>
     </div>
 
@@ -40,7 +39,8 @@
     <script src="{{ asset ('bundles/ouikend/js/libs/angular-route.min.js') }}"></script>
     <script src="{{ asset ('bundles/ouikend/js/controllers/preparCtrl.js') }}"></script>
     <script src="{{ asset ('bundles/ouikend/js/controllers/travelCtrl.js') }}"></script>
-    <script src="{{ asset ('bundles/ouikend/js/services/preparService.js') }}"></script>
+    <script src="{{ asset ('bundles/ouikend/js/services/activityService.js') }}"></script>
+    <script src="{{ asset ('bundles/ouikend/js/services/friendService.js') }}"></script>
     <script src="{{ asset ('bundles/ouikend/js/services/travelService.js') }}"></script>
 
     <script type="text/javascript">
@@ -71,9 +71,9 @@
                 .config(config)
                 .controller('preparCtrl', preparCtrl)
                 .controller('travelCtrl', travelCtrl)
-                .service('preparService', preparService)
+                .service('activityService', activityService)
+                .service('friendService', friendService)
                 .service('travelService', travelService)
                 /*.factory('', )*/
                 .run(run);
     </script>
-

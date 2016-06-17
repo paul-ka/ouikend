@@ -2,7 +2,7 @@
 function travelService($http) {
     return {
         get : function() {
-            return $http.get('/travels');
+            return $http.get('./trips.json');
         },
         update : function(id, data){
             return $http.put('/travels/' + id, data);

@@ -1,5 +1,5 @@
 // PREPAR CONTROLLER
-function preparCtrl($scope, $rootScope, $http, preparService) {
+function preparCtrl($scope, $rootScope, $http, friendService) {
 	$scope.title = "preparer";
 	$scope.panelAmi = false;
 	$scope.paneltrip = false;
@@ -10,25 +10,25 @@ function preparCtrl($scope, $rootScope, $http, preparService) {
 
 
 	function load(){
-		preparService.get().then(function(res){
+		friendService.get().then(function(res){
 			$scope.prepars = res.data;
 		});
 	}
 	$scope.add = function(){
 		var data = {};
 		data.description = $scope.description;
-		preparService.create(data).then(function(res){
+		friendService.create(data).then(function(res){
 			load();
 		});
 		$scope.description = "";
 	}
-	$scope.update = function(prepar){
-		preparService.update(prepar._id, prepar).then(function(res){
+	$scope.update = function(friend){
+		friendService.update(friend._id, friend).then(function(res){
 			load();
 		});
 	}
-	$scope.delete = function(prepar){
-		preparService.delete(prepar._id).then(function(res){
+	$scope.delete = function(friend){
+		friendService.delete(friend._id).then(function(res){
 			load();
 		});
 	}
